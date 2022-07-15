@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	main "gitlab.com/myorg/myproj"
+	main "github.com/vlkv/bazel_proj_with_proto"
 )
 
 func TestOne(t *testing.T) {

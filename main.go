@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	pb "gitlab.com/myorg/myproj/proto"
+	pb "github.com/vlkv/bazel_proj_with_proto/proto"
 )
 
 func GetFoo() string {

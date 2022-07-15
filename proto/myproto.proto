@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package myorg.myproj.proto;
-option go_package = "gitlab.com/myorg/myproj/proto";
+package vlkv.bazel_proj_with_proto.proto;
+option go_package = "github.com/vlkv/bazel_proj_with_proto/proto";
 
 message MyProto {
     int32 i = 1;

@@ -1,8 +1,8 @@
-module gitlab.com/myorg/myproj
+module github.com/vlkv/bazel_proj_with_proto
 
 go 1.18
 
-require gitlab.com/myorg/myproj/proto v0.0.0
+require github.com/vlkv/bazel_proj_with_proto/proto v0.0.0
 
 require (
 	github.com/golang/protobuf v1.5.2
@@ -16,4 +16,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace gitlab.com/myorg/myproj/proto v0.0.0 => ./proto/gitlab.com/myorg/myproj/proto
+replace github.com/vlkv/bazel_proj_with_proto/proto v0.0.0 => ./proto/github.com/vlkv/bazel_proj_with_proto/proto
