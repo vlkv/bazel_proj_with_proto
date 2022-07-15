@@ -1,8 +1,0 @@
-syntax = "proto3";
-package myproto;
-
-import "myproto.proto";
-
-service MyProtoApi {
-    rpc FooBar(MyProto) returns (MyProto) {}
-}

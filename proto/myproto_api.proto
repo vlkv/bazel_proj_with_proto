@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package myorg.myproj.proto;
+option go_package = "gitlab.com/myorg/myproj/proto";
+
+import "proto/myproto.proto";
+
+service MyProtoApi {
+    rpc FooBar(MyProto) returns (MyProto) {}
+}
