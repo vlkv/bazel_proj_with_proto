@@ -12,6 +12,9 @@ func GetFoo() string {
 }
 
 func main() {
-	mp := &pb.MyProto{}
+	mp := &pb.MyProto{
+		I: 42,
+		S: "foobar",
+	}
 	fmt.Printf("Hello %s, also: %v", GetFoo(), proto.CompactTextString(mp))
 }
