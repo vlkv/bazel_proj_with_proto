@@ -10,6 +10,9 @@ http_archive(
         "https://github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip",
     ],
 )
+load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+go_register_toolchains(version = "1.18")
+go_rules_dependencies()
 
 http_archive(
     name = "bazel_gazelle",
@@ -19,10 +22,18 @@ http_archive(
         "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.23.0/bazel-gazelle-v0.23.0.tar.gz",
     ],
 )
-
-
-load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
+gazelle_dependencies()
+
+http_archive(
+    name = "com_google_protobuf",
+    sha256 = "8b28fdd45bab62d15db232ec404248901842e5340299a57765e48abe8a80d930",
+    strip_prefix = "protobuf-3.20.1",
+    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.20.1.tar.gz"],
+)
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
+
 
 ############################################################
 # Define your own dependencies here using go_repository.
@@ -30,8 +41,9 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 # The first declaration of an external repository "wins".
 ############################################################
 
-go_rules_dependencies()
+load("//:deps.bzl", "go_dependencies")
 
-go_register_toolchains(version = "1.18.3")
+# gazelle:repository_macro deps.bzl%go_dependencies
+go_dependencies()
 
-gazelle_dependencies()
+
