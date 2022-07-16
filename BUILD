@@ -16,26 +16,27 @@ gazelle(
 )
 
 go_library(
-    name = "myproj_lib",
+    name = "bazel_proj_with_proto_lib",
     srcs = ["main.go"],
     importpath = "github.com/vlkv/bazel_proj_with_proto",
     visibility = ["//visibility:private"],
     deps = [
-        "@com_github_golang_protobuf//proto",
         "//proto:myproto_go_proto",
+        "@com_github_golang_protobuf//proto",
     ],
-
 )
 
 go_binary(
-    name = "myproj",
-    embed = [":myproj_lib"],
+    name = "bazel_proj_with_proto",
+    embed = [":bazel_proj_with_proto_lib"],
     visibility = ["//visibility:public"],
 )
 
 go_test(
-    name = "myproj_test",
+    name = "bazel_proj_with_proto_test",
     srcs = ["main_test.go"],
-    embed = [":myproj_lib"],
-    deps = ["@com_github_stretchr_testify//assert"],
+    deps = [
+        ":bazel_proj_with_proto_lib",
+        "@com_github_stretchr_testify//assert",
+    ],
 )

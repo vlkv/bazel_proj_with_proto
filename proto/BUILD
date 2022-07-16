@@ -4,7 +4,6 @@ load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 # This is an API workspace, having public visibility by default makes perfect sense.
 package(default_visibility = ["//visibility:public"])
 
-
 proto_library(
     name = "myproto_proto",
     srcs = [
